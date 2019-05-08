@@ -1,8 +1,10 @@
 const chance = require('chance')();
 
-const generateMeteringPointId = () => `DE${new Array(31).map(chance.integer() % 10)}`;
+const generateHardwareId = ({ prefix = 'DE', length }) => () => `${prefix}${new Array(length - prefix.length).map(chance.natural({ max: 9 }))}`;
 
-const generateMarketLocationId = () => `DE${new Array(9).map(chance.integer() % 10)}`;
+const generateMeteringPointId = generateHardwareId({ length: 33 });
+
+const generateMarketLocationId = generateHardwareId({ length: 11 });
 
 const generateMeter = (type) => {
   let data = {};
