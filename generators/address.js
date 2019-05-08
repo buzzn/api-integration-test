@@ -1,15 +1,12 @@
-const { Chance } = require('chance');
-const chance =  Chance();
+const chance = require('chance')();
+
+const generateAddress = () => ({
+  street: chance.address(),
+  zip: chance.zip(),
+  city: chance.city(),
+  country: chance.country(),
+});
 
 module.exports = {
-  generate_address: generate_address
-}
-
-function generate_address() {
-  return {
-    street: chance.address(),
-    zip: chance.zip(),
-    city: chance.city(),
-    country: chance.country()
-  };
-}
+  generateAddress,
+};

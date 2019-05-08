@@ -1,19 +1,9 @@
-let data_store = {};
+let dataStore = {};
 
 module.exports = {
-  store: store,
-  get: get,
-  del: del
+  store: (key, value) => {
+    dataStore[key] = value;
+  },
+  get: key => dataStore[key],
+  del: key => { delete dataStore[key] },
 };
-
-function store(key, value) {
-  data_store[key] = value;
-}
-
-function get(key) {
-  return data_store[key];
-}
-
-function del(key) {
-  delete data_store[key];
-}
