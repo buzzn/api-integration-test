@@ -1,5 +1,3 @@
-const chance = require('chance')();
-
 const generateHardwareId = ({ prefix = 'DE', length }) => () =>
   `${prefix}${Array.from({ length: length - prefix.length }, () =>
     Math.floor(Math.random() * 10),
