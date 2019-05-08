@@ -9,7 +9,7 @@ async function createLocalpool(data) {
   try {
     const res = await (await aaxios()).post(
       `${process.env.URL}/api/admin/localpools`,
-      data,
+      JSON.stringify(data),
     );
     assert.equal(res.status, 201);
     return res.data;
@@ -24,7 +24,7 @@ async function createOrganizationOwner({ localpoolId, data }) {
       `${
         process.env.URL
       }/api/admin/localpools/${localpoolId}/organization-owner`,
-      data,
+      JSON.stringify(data),
     );
     assert.equal(res.status, 201);
     return res.data;
