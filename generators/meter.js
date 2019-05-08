@@ -47,7 +47,7 @@ function generateMeter(one_way) {
     edifact_cycle_interval: 'YEARLY',
     edifact_tariff: 'ETZ',
     edifact_data_logging: 'Z05',
-    metering_point_id: generateMeteringPointId()
+    metering_location_id: generateMeteringPointId()
   };
   return data;
 }
